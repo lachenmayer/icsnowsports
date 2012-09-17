@@ -1,0 +1,95 @@
+!!! 5
+
+memberList = [['John McGuckin', 'President'], ['Matthew Edwards', 'Treasurer'], ['Lizzy Griffiths', 'Secretary'], ['Vlad Petrov', 'Trip Organiser'], ['Harry Lachenmayer', 'Web Designer'], ['Mikkel Kranker', 'Freestyle Captain'], ['Michael Parkes', 'Race Captain'], ['Annie Nofer', 'Lessons Coordinator'], ['Dom Stalker', 'Social Sec.']]
+eventList = [['Boardsports Olympics (BYOB)', 'Hyde Park', '6th October 2012'], ['London SnowOp Val Thorens Launch Party', 'TBA', '8th October 2012']]
+
+mixin committeeMembers(members)
+  ul#members
+    - each member in members
+      li.member
+        p.name= member[0]
+        p.position= member[1]
+
+mixin eventsTable(events)
+  table
+    tr
+      th What?
+      th Where?
+      th When?
+    - each event in events
+      tr
+        td.what= event[0]
+        td.where= event[1]
+        td.when= event[2]
+
+head
+  title Imperial Snowsports
+  meta(name='viewport', content='initial-scale=1.0, width=device-width')
+  script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js')
+  script(type='text/javascript', src='js/jquery.smooth-scroll.js')
+  script(type='text/javascript', src='js/paper.js')
+  script(type='text/javascript', src='js/script.js')
+  link(rel='stylesheet', type='text/css', href='css/style.css')
+body
+  canvas(id='canvas', resize)
+  #container
+    #title
+      h1 Imperial Snowsports
+    #nav
+      #trip-header
+        a(href='#trip') 
+          h2 The Trip
+      #committee-header
+        a(href='#committee') 
+          h2 The Committee
+      #events-header
+        a(href='#events') 
+          h2 Upcoming Events
+    #subnav
+      #getintouch-header
+        a(href='#getintouch') 
+          h2 Get in Touch
+      #facebook-header
+        a(href='http://facebook.com/IC.Snowsports', target='_blank')
+          h2 Our Facebook Page
+      #membership-header
+        a(href='#', target='_blank')
+          h2 Buy Your Membership
+    #content
+      #trip
+        h3 The Trip
+        #video
+          iframe(width="640", height="360", src="http://www.youtube.com/embed/kGRXIZ3qJEw", frameborder="0", allowfullscreen)
+        p in Val Thorens, France
+        p.extra-info part of the Trois Vall&eacute;es&mdash;the biggest ski resort in the world!
+        p 14th-22nd December
+        p Hundreds of London students
+        p.extra-info We're travelling with the London Snowoperative, which means we'll be joined by 6 other London unis!
+        p Themed parties: Zombie bar crawl, silent disco, and much more!
+        p.extra-info Expect some crazy late-night fun on the mountains!
+        p Raffle prizes
+        p Pre-trip party
+        p Massive bash on the hills with a big name act (TBA)
+        p ...and all this for just 
+          span.price &pound;329
+          !
+
+      #committee
+        h3 The Committee
+        mixin committeeMembers(memberList)
+      #events
+        h3 Upcoming Events
+        mixin eventsTable(eventList)
+        p To sign up for any event, just send us an email at 
+          a(href='mailto:ski@ic.ac.uk') ski@ic.ac.uk 
+          | and we'll add you to the list!
+      #getintouch
+        h3 Get In Touch
+        p If you want to sign up for any lessons, freestyle trips, race trainings or the big trip, or if you've got any questions or suggestions, send us an email at:
+        p.link
+          a(href='mailto:ski@ic.ac.uk', target='_blank') ski@ic.ac.uk
+        p If you'd prefer to write on our wall, join our
+        p.link
+          a(href='http://facebook.com/IC.Snowsports', target='_blank') Facebook page 
+      #footer
+        p Written by Harry Lachenmayer in Jade, SASS and CoffeeScript, using Paper.js and The Semantic Grid System. Check out this site's source code on GitHub.
