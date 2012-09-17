@@ -68,32 +68,32 @@ $ ->
 	paper.setup 'canvas'
 	fg = '#ffffff'
 	bg = '#8dd1da'
-
+	
 	$('a').smoothScroll()
-
+	
 	canvasHeight = $('#canvas').height()
-
+	
 	$('#content').css 'top', canvasHeight
-
+	
 	mountains = []
-
+	
 	animationSize = 100
 	animationTime = 30
-
+	
 	animationOffsets = relativeElasticOut -animationSize, animationTime
-
-
+	
+	
 	class Mountain
 		constructor: (@x, @y, @fg, @bg, @z) ->
 			@mountain = new Path.RegularPolygon new Point(x, canvasHeight + animationSize), 3, (canvasHeight + animationSize) - y
 			@mountain.fillColor = interpolateColor fg, bg, z
 			@t = 0
-
+	
 	$(document).mousedown (event) ->
 		m = new Mountain event.screenX, event.screenY, fg, bg, Math.random()
 		mountains.push m
 		view.draw()
-
+	
 	view.onFrame = (event) ->
 		return if mountains.length == 0
 		for i in [mountains.length-1...0]

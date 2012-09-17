@@ -25,17 +25,6 @@ $backgroundOpacity: 0.8
   -moz-border-radius: $amount
   -webkit-border-radius: $amount
 
-// Responsive media queries
-$respond-break: 960px
-
-=respond($media)
-  @if $media == small
-    @media only screen and (max-width: $respond-break) 
-      @content
-  @else if $media == large
-    @media only screen and (min-width: $respond-break + 1)
-      @content
-
 //
 // Typography
 //
@@ -203,9 +192,10 @@ body
         border-bottom: 5px solid $green
 
 #footer
+  +box
   margin-top: 100px
   font-size: 12px
   text-align: right
   background: rgba($black, $backgroundOpacity)
-  color: #fff
+  color: rgba(#fff, 0.7)
   padding: 20px
