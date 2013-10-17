@@ -1,209 +1,25 @@
 @import 'reset'
 @import 'grid'
 
-//
-// Constants/Mixins
-//
-
-$pageBackground: #222
-$black: #112
-$blue: #009DE5
-$green: #AFFF07
-$orange: #F67400
-
-// set http://semantic.gs/ to fluid grid
-$total-width: 100%
-
-$backgroundOpacity: 0.8
-
-=box
-  padding: 25px
-  box-shadow: 0 0 20px 5px rgba($black, 0.1)
-
-=round-corners($amount)
-  border-radius: $amount
-  -moz-border-radius: $amount
-  -webkit-border-radius: $amount
-
-//
-// Typography
-//
+$blue: #6CDFEA
 
 body
   font-family: Helvetica, Arial, sans-serif
-  color: $black
-
-h1, h2, h3, h4, h5, h6
-  color: #fff
-  font-weight: bold
+  line-height: 1.8
+  background-image: linear-gradient(bottom, rgb(242,254,255) 100%, rgb(186,250,255) 0%)
+  background-image: -o-linear-gradient(bottom, rgb(242,254,255) 100%, rgb(186,250,255) 0%)
+  background-image: -moz-linear-gradient(bottom, rgb(242,254,255) 100%, rgb(186,250,255) 0%)
+  background-image: -webkit-linear-gradient(bottom, rgb(242,254,255) 100%, rgb(186,250,255) 0%)
+  background-image: -ms-linear-gradient(bottom, rgb(242,254,255) 100%, rgb(186,250,255) 0%)
 
 h1
-  font-size: 72px
-
+  font-size: 36px
 h2
   font-size: 24px
 
-h3
-  font-size: 48px
-  border-bottom: 6px solid rgba($black, 0.1)
-  padding-bottom: 5px
-  margin-bottom: 20px
+p
+  font-size: 18px
 
-a
-  color: $black
-  text-decoration: none
-  &:visited
-    color: $black
-
-
-//
-// Layout
-//
-
-body
-  background-color: $pageBackground
-
-#canvas
-  position: fixed
-  z-index: -1
-
-#unionlogo
-  position: absolute
-  top: 0
-  right: 0
-
-#title
-  +box
-  margin-top: 150px
-  background-color: rgba($blue, $backgroundOpacity)
-  text-align: center
-
-#nav, #subnav
-  +box
-  margin-top: 20px
-  padding-bottom: 48px
-  text:
-    align: center
-    transform: uppercase
-  div
-    +column(4)
-    text-align: center
-    display: inline
-
-#nav
-  background-color: rgba($orange, $backgroundOpacity)
-
-#subnav
-  background-color: rgba($green, $backgroundOpacity)
-  h2
-    color: $black
-
-#content
-  +box
-  padding: 0
-  position: absolute
-
-#trip, #committee, #events, #getintouch
-  padding: 50px
-
-#committee, #events, #getintouch, #footer
-  margin-top: 50px
-
-#trip
-  background-color: rgba($blue, $backgroundOpacity)
-  .extra-info
-    font:
-      size: 14px
-      weight: normal
-    color: rgba($black, 0.7)
-    margin-bottom: 10px
-  .price
-    font-size: 36px
-    border-bottom: 6px solid $orange
-  p
-    text-align: center
-    font:
-      size: 24px
-      weight: bold
-    line-height: 1.5
-    color: #fff
-    margin-bottom: 10px
-  #video
-    text-align: center
-    iframe
-      box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.2)
-
-#committee
-  padding-bottom: 250px
-  background-color: rgba($orange, $backgroundOpacity)
-  li
-    +column(4)
-    margin-top: 10px
-    margin-bottom: 10px
-    color: white
-    display: inline
-    text-align: center
-    .name
-      font-weight: bold
-      font-size: 24px
-    .position
-      margin-top: 5px
-      color: rgba($black, 0.7)
-
-#events
-  background-color: rgba($green, $backgroundOpacity)
-  h3
-    color: $black
-  a
-    font-weight: bold
-    border-bottom: 5px solid #fff
-    font-size: 24px
-    &:hover
-      border-bottom: 5px solid $blue
-  table
-    width: 100%
-    margin-bottom: 20px
-    th
-      text-align: left
-      font:
-        size: 24px
-        weight: bold
-      padding-bottom: 10px
-    td
-      padding-top: 10px
-      padding-bottom: 10px
-      border-bottom: 1px solid rgba($black, 0.2)
-    td.what
-      font-weight: bold
-
-#getintouch
-  background-color: rgba($blue, $backgroundOpacity)
-  p
-    color: #fff
-    line-height: 1.4
-    font-size: 18px
-    margin-bottom: 18px
-    margin-left: 150px
-    margin-right: 150px
-    text-align: center
-  p.link
-    font:
-      weight: bold
-      size: 32px
-    a
-      color: #fff
-      border-bottom: 5px solid #fff
-      &:hover
-        border-bottom: 5px solid $green
-
-#footer
-  +box
-  margin-top: 100px
-  font-size: 12px
-  text-align: right
-  background: rgba($black, $backgroundOpacity)
-  color: rgba(#fff, 0.7)
-  padding: 20px
-  a
-    color: #fff
-    border-bottom: 1px solid #fff
+#container
+  +row(12)
+  margin: auto

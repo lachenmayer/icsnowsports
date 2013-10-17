@@ -1,7 +1,6 @@
 !!! 5
 
-memberList = [['John McGuckin', 'President'], ['Matthew Edwards', 'Treasurer'], ['Lizzy Griffiths', 'Secretary'], ['Vlad Petrov', 'Trip Organiser'], ['Harry Lachenmayer', 'Web Designer'], ['Mikkel Kranker', 'Freestyle Captain'], ['Michael Parkes', 'Race Captain'], ['Annie Nofer', 'Lessons Coordinator'], ['Dom Stalker', 'Social Sec.']]
-eventList = [['Boardsports Olympics (BYOB)', 'Hyde Park', '6th October 2012'], ['London SnowOp Val Thorens Launch Party', 'TBA', '8th October 2012']]
+memberList = [['Mikkel Kranker', 'President'], ['Dominic Stalker', 'Treasurer'], ['Tariq Shair', 'Secretary'], ['Annie Nofer', 'Tours Coordinator'], ['Simon Federer', 'Freestyle Captain'], ['Michael Parkes', 'Race Captain'], ['Morteza Mortezai Nejad', 'Events Officer'], ['Paul Mylcrist', 'Social Secretary'], ['Harry Lachenmayer', 'Web Editor']]
 
 mixin committeeMembers(members)
   ul#members
@@ -26,9 +25,10 @@ head
   title Imperial Snowsports
   meta(name='viewport', content='initial-scale=1.0, width=device-width')
   script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js')
-  script(type='text/javascript', src='js/jquery.smooth-scroll.js')
   script(type='text/javascript', src='js/paper.js')
   script(type='text/javascript', src='js/script.js')
+  link(rel='stylesheet', type='text/css', href='css/style.css')
+body
   script(type='text/javascript')
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35244710-1']);
@@ -39,84 +39,44 @@ head
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-  link(rel='stylesheet', type='text/css', href='css/style.css')
-body
-  canvas(id='canvas', resize)
-  #container
-    #unionlogo
-      a(href='http://imperialcollegeunion.org', target='_blank')
-        img(src='img/unionlogo.png')
-    #title
-      h1 Imperial Snowsports
-    #nav
-      #trip-header
-        a(href='#trip') 
-          h2 The Trip
-      #committee-header
-        a(href='#committee') 
-          h2 The Committee
-      #events-header
-        a(href='#events') 
-          h2 Upcoming Events
-    #subnav
-      #getintouch-header
-        a(href='#getintouch') 
-          h2 Get in Touch
-      #facebook-header
-        h2
-          a(href='http://facebook.com/IC.Snowsports', target='_blank') Facebook
-           / 
-          a(href='http://twitter.com/icsnowsports', target='_blank') Twitter
-      #membership-header
-        a(href='https://www.imperialcollegeunion.org/activities/a-to-z/025', target='_blank')
-          h2 Buy Your Membership
-    #content
-      #trip
-        h3 The Trip
-        #video
-          iframe(width="640", height="360", src="http://www.youtube.com/embed/kGRXIZ3qJEw", frameborder="0", allowfullscreen)
-        p in Val Thorens, France
-        p.extra-info part of the Trois Vall&eacute;es&mdash;the biggest ski resort in the world!
-        p 14th-22nd December
-        p Hundreds of London students
-        p.extra-info We're travelling with the London Snowoperative, which means we'll be joined by 6 other London unis!
-        p Themed parties: Zombie bar crawl, silent disco, and much more!
-        p.extra-info Expect some crazy late-night fun on the mountains!
-        p Raffle prizes
-        p Pre-trip party
-        p Massive bash on the hills with a big name act (TBA)
-        p ...and all this from just 
-          span.price &pound;329
-          !
 
-      #committee
-        h3 The Committee
-        mixin committeeMembers(memberList)
-      #events
-        h3 Upcoming Events
-        mixin eventsTable(eventList)
-        p To sign up for any event, just send us an email at 
-          a(href='mailto:ski@ic.ac.uk') ski@ic.ac.uk 
-          | and we'll add you to the list!
-      #getintouch
-        h3 Get In Touch
-        p If you want to sign up for any lessons, freestyle trips, race trainings or the big trip, or if you've got any questions or suggestions, send us an email at:
-        p.link
-          a(href='mailto:ski@ic.ac.uk', target='_blank') ski@ic.ac.uk
-        p If you'd prefer to write on our wall, join our
-        p.link
-          a(href='http://facebook.com/IC.Snowsports', target='_blank') Facebook page 
-      #footer
-        p Written by Harry Lachenmayer in 
-          a(href='http://jade-lang.com', target='_blank') Jade
-          | , 
-          a(href='http://sass-lang.com/', target='_blank') SASS
-          |  and 
-          a(href='http://coffeescript.org', target='_blank') CoffeeScript
-          |  using 
-          a(href='http://paperjs.org', target='_blank') Paper.js
-          |  and 
-          a(href='http://semantic.gs', target='_blank') The Semantic Grid System
-          | . Check out this site's 
-          a(href='http://github.com/lachenmayer/icsnowsports', target='_blank') source code
-          |  on GitHub.
+    window.fbAsyncInit = function() {
+      // init the FB JS SDK
+      FB.init({
+        appId      : '544767295603024',
+        channelUrl : '//www.union.ic.ac.uk/acc/ski/channel.html',
+        status     : false,
+        xfbml      : false
+      });
+
+      FB.api('/fql?q=SELECT%20pid%2Csrc_small%2Csrc_big%20FROM%20photo%20WHERE%20aid%20IN%20(SELECT%20aid%20FROM%20album%20WHERE%20owner%20%3D%20136338936406490)', function(response) {
+        window.displayPhotos(response.data);
+      })
+    };
+
+    // Load the SDK asynchronously
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  #fb-root
+
+  #container
+    h1 Imperial College Snowsports
+    #trip
+      h2 The Trip
+      p The <strong>biggest event of the ICSC year</strong> is just a few short months away. In December we will be whisking you away to the French resort of <strong>Les Deux Alpes</strong> for a non-stop week of <strong>snowsports and partying</strong>. Whether you are the sort of person who is ready for first lift, just leaving the club then or, for the most hardcore of you, both, this trip will be <strong>one of the highlights of the uni year</strong>.
+      p We will be travelling out there with the <strong>London Snowoperative</strong>, a collaborative project with several other London unis. Last year between us we took out over <strong>550 students</strong>, 200 from Imperial, filling the resort and ensuring what the bars were rammed each night for apr&egrave;s ski and this year looks set to be <strong>bigger than ever</strong>.
+      p For those of you who can't ski or board or feel that they could do with some improvement, you can <strong>book lessons on trip</strong> (as well as at Hemel Hempstead snow dome during term time) to get you out there charging gnarly pow with the best of them. For the more experienced of you who are looking to tweak technique in some areas you will be able to book into a <strong>backcountry, racing or freestyle workshop</strong> for a couple of hours during the week.
+      p The starting price of <strong>&pound;309</strong> includes:
+      ul
+        li 6 Day Lift Pass
+        li Accommodation
+        li Return Transport
+        li Free Trip T-Shirt
+        li Ski Away Day in <strong>Alpe D'Huez</strong>
+        li An absolutely ridiculous week!
+      p.emphasize Book your tickets now at <a href="http://booking.nucotravel.com/londonsnowop">http://booking.nucotravel.com/londonsnowop</a> and select the <strong>ICSC</strong> option!
