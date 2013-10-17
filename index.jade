@@ -40,43 +40,21 @@ body
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-    window.fbAsyncInit = function() {
-      // init the FB JS SDK
-      FB.init({
-        appId      : '544767295603024',
-        channelUrl : '//www.union.ic.ac.uk/acc/ski/channel.html',
-        status     : false,
-        xfbml      : false
-      });
-
-      FB.api('/fql?q=SELECT%20pid%2Csrc_small%2Csrc_big%20FROM%20photo%20WHERE%20aid%20IN%20(SELECT%20aid%20FROM%20album%20WHERE%20owner%20%3D%20136338936406490)', function(response) {
-        window.displayPhotos(response.data);
-      })
-    };
-
-    // Load the SDK asynchronously
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/all.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  #fb-root
-
-  #container
+  .content#title
     h1 Imperial College Snowsports
-    #trip
-      h2 The Trip
-      p The <strong>biggest event of the ICSC year</strong> is just a few short months away. In December we will be whisking you away to the French resort of <strong>Les Deux Alpes</strong> for a non-stop week of <strong>snowsports and partying</strong>. Whether you are the sort of person who is ready for first lift, just leaving the club then or, for the most hardcore of you, both, this trip will be <strong>one of the highlights of the uni year</strong>.
-      p We will be travelling out there with the <strong>London Snowoperative</strong>, a collaborative project with several other London unis. Last year between us we took out over <strong>550 students</strong>, 200 from Imperial, filling the resort and ensuring what the bars were rammed each night for apr&egrave;s ski and this year looks set to be <strong>bigger than ever</strong>.
-      p For those of you who can't ski or board or feel that they could do with some improvement, you can <strong>book lessons on trip</strong> (as well as at Hemel Hempstead snow dome during term time) to get you out there charging gnarly pow with the best of them. For the more experienced of you who are looking to tweak technique in some areas you will be able to book into a <strong>backcountry, racing or freestyle workshop</strong> for a couple of hours during the week.
-      p The starting price of <strong>&pound;309</strong> includes:
-      ul
-        li 6 Day Lift Pass
-        li Accommodation
-        li Return Transport
-        li Free Trip T-Shirt
-        li Ski Away Day in <strong>Alpe D'Huez</strong>
-        li An absolutely ridiculous week!
-      p.emphasize Book your tickets now at <a href="http://booking.nucotravel.com/londonsnowop">http://booking.nucotravel.com/londonsnowop</a> and select the <strong>ICSC</strong> option!
+  .photo
+    img
+  .content#trip
+    h2 The Trip
+    p The <strong>biggest event of the ICSC year</strong> is just a few short months away. In December we will be whisking you away to the French resort of <strong>Les Deux Alpes</strong> for a non-stop week of <strong>snowsports and partying</strong>. Whether you are the sort of person who is ready for first lift, just leaving the club then or, for the most hardcore of you, both, this trip will be <strong>one of the highlights of the uni year</strong>.
+    p We will be travelling out there with the <strong>London Snowoperative</strong>, a collaborative project with several other London unis. Last year between us we took out over <strong>550 students</strong>, 200 from Imperial, filling the resort and ensuring what the bars were rammed each night for apr&egrave;s ski and this year looks set to be <strong>bigger than ever</strong>.
+    p For those of you who can't ski or board or feel that they could do with some improvement, you can <strong>book lessons on trip</strong> (as well as at Hemel Hempstead snow dome during term time) to get you out there charging gnarly pow with the best of them. For the more experienced of you who are looking to tweak technique in some areas you will be able to book into a <strong>backcountry, racing or freestyle workshop</strong> for a couple of hours during the week.
+    p The starting price of <strong>&pound;309</strong> includes:
+    ul
+      li 6 Day Lift Pass
+      li Accommodation
+      li Return Transport
+      li Free Trip T-Shirt
+      li Ski Away Day in <strong>Alpe D'Huez</strong>
+      li An absolutely ridiculous week!
+    p.emphasize Book your tickets now at <a href="http://booking.nucotravel.com/londonsnowop">http://booking.nucotravel.com/londonsnowop</a> and select the <strong>ICSC</strong> option!
