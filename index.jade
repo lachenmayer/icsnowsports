@@ -24,12 +24,12 @@ mixin eventsTable(events)
 head
   title Imperial Snowsports
   meta(name='viewport', content='initial-scale=1.0, width=device-width')
+  link(href='//fonts.googleapis.com/css?family=Lato:400,700,700italic', rel='stylesheet', type='text/css')
   link(rel='stylesheet', type='text/css', href='css/style.css')
   script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
-  script(type='text/javascript', src='js/paper.js')
   script(type='text/javascript', src='js/script.js')
 body
-  script(type='text/javascript')
+  script(type='text/javascript').
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-35244710-1']);
     _gaq.push(['_trackPageview']);
@@ -45,6 +45,10 @@ body
     .buttons
       a(href='https://www.facebook.com/IC.Snowsports') Facebook
       a(href='https://www.imperialcollegeunion.org/activities/a-to-z/025') Buy membership
+      a(href='#trip') The Trip
+      a(href='#faq') FAQ
+      a(href='#committee') The Committee
+      a(href='#club') The Club
   .background-photo
     img(src="img/verbier_blur_small.jpg")
   .content#trip
@@ -61,20 +65,16 @@ body
         li Free Trip T-Shirt
         li Ski Away Day in <strong>Alpe D'Huez</strong>
         li An absolutely ridiculous week!
-      p.emphasize Book your tickets now at <a href="http://booking.nucotravel.com/londonsnowop">http://booking.nucotravel.com/londonsnowop</a> and select the <strong>ICSC</strong> option!
+      p.emphasize <a href="http://booking.nucotravel.com/londonsnowop">Book your tickets now</a> and select the <strong>ICSC</strong> option!
   .photo.horizontal
     img(src="img/look_turn_crop_small.jpg")
-  .content#committee
-    mixin committeeMembers(memberList)
-  .photo.vertical
-    img(src="img/rory_sequence_crop_small.jpg")
   .content#faq
     .text
-      h2 Ski Trip FAQ
+      h2 Trip FAQ
       p.question Can I bring my non Imperial friends?
       p.answer <strong>Yes</strong> - however they need to get associate membership of the union, which is &pound;4 per month so they just need to get it for December, as well as club membership. https://www.imperialcollegeunion.org/your-union/how-were-run/membership
       p.question When is the booking deadline?
-      p.answer Midnight 8th November
+      p.answer Midnight 8th November.
       p.question Do I need my own skis or snowboard and related equipment?
       p.answer Skis/boots/poles/snowboards are not required - you can book them using NUCO's booking system. To see the prices go on the booking system and you can see them listed, there are various different grades of equipment.
       p.question Do I need my own outerwear (jacket, salopettes, gloves, goggles etc)?
@@ -84,4 +84,20 @@ body
       p.question If I provide my own transport is there a reduction in base price?
       p.answer If you make your own way there and back then the price is reduced by &pound;40. However if you only take the coach one way, for example the coach there and then make your own way home, there is no reduction.
   .photo.vertical
+    img(src="img/rory_sequence_crop_small.jpg")
+  .content#committee
+    .text
+      h2 The Committee
+      mixin committeeMembers(memberList)
+  .photo.vertical
     img(src="img/cow_flip_small.jpg")
+  .content#events
+    .text
+      h2 The Club
+      p IC Snowsports is about far more than just the trips. We're active all year, running events with all the major London unis as part of the <a href="https://www.facebook.com/LondonSnowoperative">London Snowoperative</a>.
+
+      p If you're a racer, get involved with our race team! We have regular race training sessions throughout the year, and compete in all the major university racing events, including <a href="http://www.buscevents.com/">BUDS</a> and <a href="http://www.kingsski.org/">Kings</a>. The racing calendar culminates every year at the <a href="http://www.buscevents.com/events/index.php/?content=942&menu=2497">BUSC main event</a>, a week of racing and snow fun in the Alps with students from all over the UK. The London SnowOp race team keeps up to date through <a href="https://www.facebook.com/groups/255265967933399/">this group on Facebook</a>, just say hi&mdash;new faces are always welcome!
+
+      p For all you freestyle heads, we run regular freestyle trips to snowdomes near London. Get involved on the <a href="https://www.facebook.com/groups/610853772307228/">London SnowOp</a> freestyle group.
+      p If you're not so confident about your skiing ability, we also run regular lessons at snowdomes. We subsidise these heavily for members&mdash;definitely the cheapest way to get some snow time in without heading to the Alps.
+      p If you'd like to get involved, just email us at <strong>ski@imperial.ac.uk</strong> or send us a message on our <a href="https://www.facebook.com/IC.Snowsports">Facebook page</a>.

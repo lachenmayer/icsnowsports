@@ -6,26 +6,22 @@ moveOnScroll = ($container, $image, amount, property) ->
 
 verticalParallax = ($containers) ->
   for container in $containers
-    $container = $(container)
-    containerHeight = $container.height()
-    $container.find('img').load (evt) ->
-      $image = $(evt.currentTarget)
-      imgHeight = $image.height()
-      difference = containerHeight - imgHeight
-      moveOnScroll $container, $image, difference, 'top'
+    parallax $(container), 'height', 'top'
 
 horizontalParallax = ($containers) ->
   for container in $containers
-    $container = $(container)
-    containerWidth = $container.width()
-    $container.find('img').load (evt) ->
-      $image = $(evt.currentTarget)
-      imgWidth = $image.width()
-      difference = containerWidth - imgWidth
-      moveOnScroll $container, $image, difference, 'left'
+    parallax $(container), 'width', 'left'
 
+# measure: 'width' or 'height'
+# property: 'top' or 'left'
+parallax = ($container, measure, property) ->
+  containerMeasure = $container[measure]()
+  $container.find('img').load (evt) ->
+    $image = $(evt.currentTarget)
+    imgMeasure = $image[measure]()
+    difference = containerMeasure - imgMeasure
+    moveOnScroll $container, $image, difference, property
 
 $ ->
     verticalParallax $('.vertical')
-    # verticalParallax $('.horizontal')
     horizontalParallax $('.horizontal')
