@@ -27,3 +27,6 @@ clean_deps:
 	rm -rf node_modules/
 
 build: js/* css/* img/* index.jade
+
+sync: build
+	scp -r bin/* hl2711@dougal.union.ic.ac.uk:/website/acc/ski
